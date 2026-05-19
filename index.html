@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnocell Acessórios | Loja Premium</title>
+    
+    <!-- Fontes e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --azul-escuro: #003366;
+            --azul-medio: #0066cc;
+            --azul-claro: #e6f2ff;
+            --branco: #ffffff;
+            --gradiente: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            --sombra: 0 10px 30px rgba(0, 51, 102, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8faff;
+            color: #1a202c;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--branco);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--azul-escuro);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--azul-medio); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: var(--gradiente);
+            color: var(--branco);
+            padding: 4rem 10% 6rem;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; }
+        .hero p { opacity: 0.9; font-size: 1.1rem; }
+
+        /* --- FILTROS RESPONSIVOS --- */
+        .filter-section {
+            max-width: 1100px;
+            margin: -3rem auto 2rem;
+            padding: 1.5rem;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* Scroll horizontal nas abas para celular */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 5px;
+            justify-content: center;
+            scrollbar-width: none; /* Firefox */
+        }
+        .tabs::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+        .tab-btn {
+            background: var(--azul-claro);
+            color: var(--azul-escuro);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--azul-escuro);
+            color: var(--branco);
+        }
+
+        .gb-filter select {
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #cbd5e0;
+            outline: none;
+            background: #fff;
+            font-weight: 600;
+        }
+
+        /* --- GRID DE PRODUTOS --- */
+        .catalog {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 5rem;
+            display: grid;
+            /* Responsividade do Grid */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #edf2f7;
+            transition: 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--azul-claro);
+            color: var(--azul-medio);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .product-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--azul-escuro);
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #2d3748;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover { filter: brightness(0.9); }
+
+        /* --- BOTÕES FLUTUANTES --- */
+        .floating-social {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 2000;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover { transform: scale(1.1); }
+        .wa-float { background: #25d366; }
+        .ig-float { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+
+        /* --- RESPONSIVIDADE ADICIONAL --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 3rem 5% 5rem; }
+            .catalog { 
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 2 colunas em celulares médios */
+                gap: 15px;
+                padding-bottom: 100px;
+            }
+            .product-card { padding: 12px; }
+            .img-container { height: 140px; }
+            .product-info h3 { font-size: 0.9rem; }
+            .price { font-size: 1.1rem; }
+            .btn-whatsapp { font-size: 0.8rem; padding: 10px; }
+            .tabs { justify-content: flex-start; }
+        }
+
+        @media (max-width: 480px) {
+            .catalog { 
+                grid-template-columns: 1fr; /* 1 coluna em celulares muito pequenos se preferir, ou manter 2 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TECNO<span>CELL</span></div>
+        <a href="https://instagram.com/tecnocell_acessorios" target="_blank" style="color: var(--azul-medio); font-size: 1.4rem;">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>Tecnocell Acessórios</h1>
+        <p>Aparelhos novos e seminovos com o melhor preço da região.</p>
+    </section>
+
+    <div class="filter-section">
+        <div class="tabs" id="tab-container">
+            <button class="tab-btn active" onclick="filterBrand('all', this)">Todos</button>
+            <button class="tab-btn" onclick="filterBrand('iphone', this)">iPhone</button>
+            <button class="tab-btn" onclick="filterBrand('samsung', this)">Samsung</button>
+            <button class="tab-btn" onclick="filterBrand('xiaomi', this)">Xiaomi</button>
+        </div>
+
+        <div class="gb-filter">
+            <select id="gb-select" onchange="updateView()">
+                <option value="all">Armazenamento (Todos)</option>
+                <option value="64GB">64GB</option>
+                <option value="128GB">128GB</option>
+                <option value="256GB">256GB</option>
+                <option value="512GB">512GB</option>
+            </select>
+        </div>
+    </div>
+
+    <main class="catalog" id="product-grid">
+        <!-- Produtos injetados aqui -->
+    </main>
+
+    <div class="floating-social">
+        <a href="https://instagram.com/tecnocell_acessorios" class="social-link ig-float" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/5500000000000?text=Olá! Vim pelo site e quero tirar uma dúvida." class="social-link wa-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        const products = [
+            { brand: 'iphone', model: 'iPhone 15 Pro Max', gb: '256GB', price: '7.299', img: 'https://m.media-amazon.com/images/I/81Os1nnA5pL._AC_SL1500_.jpg' },
+            { brand: 'iphone', model: 'iPhone 14', gb: '128GB', price: '3.850', img: 'https://m.media-amazon.com/images/I/610pghkO81L._AC_SL1500_.jpg' },
+            { brand: 'samsung', model: 'Galaxy S24 Ultra', gb: '512GB', price: '6.150', img: 'https://m.media-amazon.com/images/I/71f6B-rKzOL._AC_SL1500_.jpg' },
+            { brand: 'samsung', model: 'Galaxy A55 5G', gb: '128GB', price: '1.890', img: 'https://m.media-amazon.com/images/I/61fF1j3+1lL._AC_SL1000_.jpg' },
+            { brand: 'xiaomi', model: 'Redmi Note 13 Pro', gb: '256GB', price: '1.950', img: 'https://m.media-amazon.com/images/I/51IuS6299fL._AC_SL1000_.jpg' },
+            { brand: 'iphone', model: 'iPhone 13', gb: '128GB', price: '3.100', img: 'https://m.media-amazon.com/images/I/71ZOtNdaZCL._AC_SL1500_.jpg' },
+        ];
+
+        let selectedBrand = 'all';
+
+        function filterBrand(brand, btn) {
+            selectedBrand = brand;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateView();
+        }
+
+        function updateView() {
+            const gbValue = document.getElementById('gb-select').value;
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const filtered = products.filter(p => {
+                const matchBrand = selectedBrand === 'all' || p.brand === selectedBrand;
+                const matchGB = gbValue === 'all' || p.gb === gbValue;
+                return matchBrand && matchGB;
+            });
+
+            filtered.forEach(p => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <span class="product-badge">${p.gb}</span>
+                        <div class="img-container">
+                            <img src="${p.img}" alt="${p.model}">
+                        </div>
+                        <div class="product-info">
+                            <h3>${p.model}</h3>
+                            <span class="price">R$ ${p.price}</span>
+                            <a href="https://wa.me/5500000000000?text=Olá! Tenho interesse no ${p.model} de ${p.gb}" 
+                               target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Tenho Interesse
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Iniciar
+        updateView();
+    </script>
+</body>
+</html>
