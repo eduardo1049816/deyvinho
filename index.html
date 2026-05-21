@@ -287,6 +287,7 @@
             <button class="tab-btn active" onclick="filterBrand('all')"><i class="fas fa-th-large"></i> Todos</button>
             <button class="tab-btn" onclick="filterBrand('iphone')"><i class="fab fa-apple"></i> iPhone</button>
             <button class="tab-btn" onclick="filterBrand('samsung')"><i class="fas fa-mobile-alt"></i> Samsung</button>
+            <button class="tab-btn" onclick="filterBrand('cabo iphone')"><i class="fas fa-mobile-alt"></i> Cabos iphone</button>
         </div>
         <div class="gb-filter">
             <select id="gb-select" onchange="applyFilters()">
@@ -318,12 +319,35 @@
         AOS.init({ duration: 800, once: true });
 
         const products = [
-            { brand: 'iphone', model: 'iPhone 15 Pro Max', gb: '256GB', price: '7.499', img: 'https://m.media-amazon.com/images/I/81Os1nnA5pL._AC_SL1500_.jpg' },
-            { brand: 'iphone', model: 'iPhone 15', gb: '128GB', price: '4.899', img: 'https://m.media-amazon.com/images/I/71d7rfSl0wL._AC_SL1500_.jpg' },
-            { brand: 'iphone', model: 'iPhone 14', gb: '128GB', price: '3.999', img: 'https://m.media-amazon.com/images/I/610pghkO81L._AC_SL1500_.jpg' },
-            { brand: 'samsung', model: 'Galaxy S24 Ultra', gb: '512GB', price: '6.299', img: 'https://m.media-amazon.com/images/I/71f6B-rKzOL._AC_SL1500_.jpg' },
-            { brand: 'samsung', model: 'Galaxy S23 FE', gb: '128GB', price: '2.599', img: 'https://m.media-amazon.com/images/I/61SUnmYfS6L._AC_SL1500_.jpg' },
-            { brand: 'samsung', model: 'Galaxy A55', gb: '256GB', price: '1.999', img: 'https://m.media-amazon.com/images/I/61fF1j3+1lL._AC_SL1000_.jpg' },
+            { brand: 'cabo iphone', model: 'Cabo Apple USB-C Lightning', gb: '1 Metro', price: '280', img: 'https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg' },
+            { brand: 'cabo iphone', model: 'Cabo Apple USB-C', gb: '1 Metro', price: '290', img: 'https://m.media-amazon.com/images/I/61M4X0Rcm-L._AC_SL1500_.jpg' },
+            { brand: 'cabo iphone', model: 'Cabo Apple USB-C', gb: '2 Metros', price: '350', img: 'https://m.media-amazon.com/images/I/61m5RTV2GKL._AC_SL1500_.jpg' },
+
+            { brand: 'iphone', model: 'iPhone 13', gb: '128GB', price: '2050', img: './img/13.jpg' },
+            { brand: 'iphone', model: 'iPhone 13 Pro', gb: '128GB', price: '2450', img: './img/13pro.jpg' },
+            { brand: 'iphone', model: 'iPhone 13 Pro', gb: '256GB', price: '2550', img: './img/13proo.jpg' },
+            { brand: 'iphone', model: 'iPhone 13 Pro Max', gb: '128GB', price: '2950', img: './img/13promax.jpg' },
+            { brand: 'iphone', model: 'iPhone 13 Pro Max', gb: '256GB', price: '3050', img: './img/13promax.jpg' },
+
+            { brand: 'iphone', model: 'iPhone 14', gb: '128GB', price: '2190', img: './img/14.jpg' },
+            { brand: 'iphone', model: 'iPhone 14 Plus', gb: '128GB', price: '2350', img: './img/14plus.jpg' },
+            { brand: 'iphone', model: 'iPhone 14 Plus', gb: '256GB', price: '2550', img: './img/14pluss.jpg' },
+            { brand: 'iphone', model: 'iPhone 14 Plus', gb: '512GB', price: '2650', img: './img/14plusss.jpg' },
+            { brand: 'iphone', model: 'iPhone 14 Pro', gb: '256GB', price: '2990', img: './img/14pro.jpg' },
+            { brand: 'iphone', model: 'iPhone 14 Pro Max', gb: '128GB', price: '3400', img: './img/14promax.jpg' },
+
+            { brand: 'iphone', model: 'iPhone 15', gb: '128GB', price: '2700', img: './img/15.jpg' },
+            { brand: 'iphone', model: 'iPhone 15 Pro Max', gb: '256GB', price: '4200', img: './img/15promax.jpg' },
+
+            { brand: 'iphone', model: 'iPhone 16', gb: '128GB', price: '3800', img: './img/16.jpg' },
+            { brand: 'iphone', model: 'iPhone 16 Plus', gb: '128GB', price: '4000', img: './img/16plus.jpg' },
+            { brand: 'iphone', model: 'iPhone 16 Pro', gb: '128GB', price: '4450', img: './img/16pro.jpg' },
+            { brand: 'iphone', model: 'iPhone 16 Pro', gb: '256GB', price: '4700', img: './img/16proo.jpg' },
+            { brand: 'iphone', model: 'iPhone 16 Pro Max', gb: '256GB', price: '5150', img: './img/16promax.jpg' },
+
+            { brand: 'iphone', model: 'iPhone 17 Pro Max', gb: '256GB', price: '8200', img: './img/17promax.jpg' },
+            { brand: 'iphone', model: 'iPhone 17 Pro', gb: '512GB', price: '7450', img: './img/17proo.jpg' },
+            { brand: 'iphone', model: 'iPhone 17 Pro', gb: '1TB', price: '0', img: './img/17pro.jpg' }
         ];
 
         let currentBrand = 'all';
